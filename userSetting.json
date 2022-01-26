@@ -1,19 +1,8 @@
 {
-
     "devOrg": {
-
-        "client_id": "3MVG9z6NAroNkeMmvV4B85UYJdBtyiUqo8WsK7JZVAgRSDHlmzDPsVnVaNWF15CqT36qjzF54p4vQbzYfVntj",
-
+        "client_id": "3MVG9pRzvMkjMb6n3BDXTGlXbBMPDS3lLoVqCPCBob3MND0aa7c90rPIgYQ8RkJ6XQKREuTw7jIxTycJpjlQM",
         "login_url": "https://login.salesforce.com"
-
     },
-
     "live": {
-
-        
-
     }
-
-
-
 }
