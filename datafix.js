@@ -6,10 +6,7 @@ const _ = require("lodash");
     console.log("success");
     console.time("data-fix");
 
-    const soql = `select Id, lead__r.Name, phone__c ,account__c , opportunity__c  from call_log__c 
-where (account__c = null or opportunity__c = null )
-and call_reason__c  = 'Lead' limit 10
-`;
+    const soql = `SELECT Id, Description FROM Task limit 10`;
 
     let i = 0;
     for await (const { records } of createReadStream(soql)) {
@@ -17,17 +14,11 @@ and call_reason__c  = 'Lead' limit 10
 
         for (const chunk of _.chunk(records, 1)) {
             console.log("i=" + i++);
-
-            const { Id, Lead__r, Phone__c } = chunk[0];
-            const { Name } = Lead__r;
-
+            let descStr = "Decs " + i;
             console.log("Id=" + Id);
-            console.log("Name=" + Name);
-            console.log("phone__c=" + Phone__c);
-
             console.time(Id);
             try {
-                const result = await executeAnonymous(genApexCode(Id, Name, Phone__c));
+                const result = await executeAnonymous(genApexCode(Id, descStr));
                 console.log("result=" + JSON.stringify(result));
             } catch (e) {
                 console.error(e);
@@ -39,8 +30,14 @@ and call_reason__c  = 'Lead' limit 10
     console.timeEnd("data-fix");
 })();
 
-const genApexCode = (callLogId, leadName, phone) => {
+const genApexCode = (taskId, descStr) => {
     return `
+    
+    String taskId = '${taskId}';
+    String descStr = '${descStr}';
+    Task tk = [Select Id, Description FROM Task Where Id =:taskId  limit 1 ];
+    tk.Description = descStr;
+    update tk;
 
     `;
 };
