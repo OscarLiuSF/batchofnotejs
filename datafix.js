@@ -2,7 +2,7 @@ const { login, createReadStream, executeAnonymous } = require("./promisify-js-fo
 const _ = require("lodash");
 
 (async () => {
-    await login("../../config/userSetting.json", "live", "oscar.liu@ef.com");
+    await login("./userSetting.json", "devOrg", "oscar.liu@ef.com");
     console.log("success");
     console.time("data-fix");
 
