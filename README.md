@@ -8,7 +8,7 @@ Simulate the user’s operation, so it is a final approach for execute batch
 >
 Try out to solve and improve performance with salesforce batches, however there are still some alternative solutions Salesforce Function hold a moment
 
- *  Node.js batch
+Node.js batch
  
  *   auth
  *   extra salesforce data for Loop
