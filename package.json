@@ -1,0 +1,26 @@
+{
+  "name": "link-online2offline",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "node --inspect run.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "csv-parser": "^2.3.2",
+    "csv-write-stream": "^2.0.0",
+    "dayjs": "^1.8.27",
+    "jsforce": "^1.9.3",
+    "lento": "^2.1.0",
+    "lodash": "^4.17.15",
+    "salesforce-jwt-promise": "^0.1.8",
+    "stdout-stream": "^1.4.1",
+    "through2": "^3.0.1",
+    "winston": "^3.2.1",
+    "winston-loggly-bulk": "^3.1.0"
+  }
+}
